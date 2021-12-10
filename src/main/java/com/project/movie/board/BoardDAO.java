@@ -1,5 +1,7 @@
 package com.project.movie.board;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,6 +19,10 @@ public class BoardDAO {
 	public BoardVO getBoard(int seq) {
 		BoardVO one = sqlSession.selectOne("Board.getBoard", seq);
 		return one;
+	}
+	public List<BoardVO> getBoardList(){
+		List<BoardVO> list = sqlSession.selectList("Board.getBoardList");
+		return list;
 	}
 
 }

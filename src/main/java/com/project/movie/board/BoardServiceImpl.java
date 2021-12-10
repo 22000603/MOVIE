@@ -1,5 +1,7 @@
 package com.project.movie.board;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,4 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getBoardList(){
 	return boardDAO.getBoardList();
 	}
-	
 }
