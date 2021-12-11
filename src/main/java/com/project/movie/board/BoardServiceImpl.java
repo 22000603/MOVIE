@@ -15,6 +15,13 @@ public class BoardServiceImpl implements BoardService{
 	return boardDAO.insertBoard(vo);
 	}
 	@Override
+	public int updateBoard(BoardVO vo) {
+	return boardDAO.updateBoard(vo);
+	}
+	public int deleteBoard(int id) {
+	return boardDAO.deleteBoard(id);
+	}
+	@Override
 	public BoardVO getBoard(int seq) {
 	return boardDAO.getBoard(seq);
 	}
