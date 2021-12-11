@@ -14,33 +14,33 @@ public class BoardController {
 	BoardService boardService;
 	
 
-	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String boardlist(Model model) {
 		model.addAttribute("list",
 				boardService.getBoardList());
-		return "posts";
+		return "board/list";
 	}
 
-	@RequestMapping(value = "/board/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addPost() {
-		return "addpostform";
+		return "board/addpostform";
 	}
-	@RequestMapping(value = "/board/addok", method = RequestMethod.GET)
+	@RequestMapping(value = "/addok", method = RequestMethod.POST)
 	public String addOK(BoardVO vo) {
 		int i = boardService.insertBoard(vo);
 		if (i == 0)
 			System.out.println("Insert 성공");
 		else
 			System.out.println("Insert 실패");
-		return "redirect:/board/list";
+		return "redirect:/movie/list";
 	}
-	@RequestMapping(value = "/board/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/movie/edit/{id}", method = RequestMethod.GET)
 		public String editPost(@PathVariable("id") int id, Model model) {
 			BoardVO boardVO = boardService.getBoard(id);
 			model.addAttribute("boardVO", boardVO);
 			return "editform";
 	}
-	@RequestMapping(value = "/boardlist/editok", method = RequestMethod.POST)
+	@RequestMapping(value = "/movie/editok", method = RequestMethod.POST)
 	public String editOK(BoardVO vo) {
 		int i = boardService.updateBoard(vo);
 		if (i==0)
@@ -48,9 +48,9 @@ public class BoardController {
 		else
 			System.out.println("수정 성공");
 		
-		return "redirect:/board/list";
+		return "redirect:/movie/list";
 	}
-	@RequestMapping(value = "/boardlist/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/movie/delete/{id}", method = RequestMethod.GET)
 	public String delPost(@PathVariable("id") int id) {
 		int i = boardService.deleteBoard(id);
 		if (i==0)
@@ -59,7 +59,7 @@ public class BoardController {
 			System.out.println("삭제 성공");
 		
 		
-		return "redirect:/boardlist";
+		return "redirect:/movie/list";
 	}
 	
 	

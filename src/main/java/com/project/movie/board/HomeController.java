@@ -1,4 +1,4 @@
-package com.project.movie;
+package com.project.movie.board;
 
 import java.text.DateFormat;
 import java.util.Date;

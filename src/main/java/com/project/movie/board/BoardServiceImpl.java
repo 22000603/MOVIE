@@ -10,6 +10,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Autowired
 	BoardDAO boardDAO;
+	
 	@Override
 	public int insertBoard(BoardVO vo) {
 	return boardDAO.insertBoard(vo);
@@ -22,8 +23,8 @@ public class BoardServiceImpl implements BoardService{
 	return boardDAO.deleteBoard(id);
 	}
 	@Override
-	public BoardVO getBoard(int seq) {
-	return boardDAO.getBoard(seq);
+	public BoardVO getBoard(int id) {
+	return boardDAO.getBoard(id);
 	}
 	@Override
 	public List<BoardVO> getBoardList(){
