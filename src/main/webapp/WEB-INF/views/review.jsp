@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>new movid</title>
+<title>new post</title>
 <style>
 #edit {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -29,11 +29,11 @@
 </head>
 <body>
 
-<h1>새로운 영화 등록하기</h1>
-<form action="addmovieok" method="post">
+<h1>새 글쓰기</h1>
+<form action="addok" method="post">
 	<table id="edit">
-		<tr><th>영화 제목</th><td><input type="text" name="category"></td></tr>
-		<tr><th></th><td><input type="text" name="title"/></td></tr>
+		<tr><th>카테고리</th><td><input type="text" name="category"></td></tr>
+		<tr><th>제목</th><td><input type="text" name="title"/></td></tr>
 		<tr><th>글쓴이</th><td><input type="text" name="writer"/></td></tr>
 		<tr><th>내용</th><td><textarea cols="50" rows="5" name="content"></textarea></td></tr>
 	</table>
