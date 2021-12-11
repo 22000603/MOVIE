@@ -1,5 +1,7 @@
 package com.project.movie.board;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,13 @@ public class BoardServiceImpl implements BoardService{
 	return boardDAO.insertBoard(vo);
 	}
 	@Override
+	public int updateBoard(BoardVO vo) {
+	return boardDAO.updateBoard(vo);
+	}
+	public int deleteBoard(int id) {
+	return boardDAO.deleteBoard(id);
+	}
+	@Override
 	public BoardVO getBoard(int seq) {
 	return boardDAO.getBoard(seq);
 	}
@@ -20,5 +29,4 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getBoardList(){
 	return boardDAO.getBoardList();
 	}
-	
 }

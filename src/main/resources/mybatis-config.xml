@@ -4,6 +4,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <typeAliases>
-<typeAlias alias="board" type="com.mycom.myapp.board.BoardVO" />
+<typeAlias alias="board" type="com.project.movie.board.BoardVO" />
+<typeAlias alias="user" type="com.project.movie.user.UserVO" />
 </typeAliases>
 </configuration>
