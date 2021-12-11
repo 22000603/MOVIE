@@ -2,8 +2,7 @@ package com.project.movie;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
-import org.apache.tomcat.jdbc.pool.DataSource;
+import javax.sql.DataSource;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
