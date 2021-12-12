@@ -9,5 +9,7 @@ public interface BoardService {
 	public int deleteBoard(int id);
 	public BoardVO getBoard(int id);
 	public List<BoardVO> getBoardList();
+	public String getRatings(int id);
+	public int updateRatings(int id);
 
 }

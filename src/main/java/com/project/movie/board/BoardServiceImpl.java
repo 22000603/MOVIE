@@ -30,4 +30,12 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getBoardList(){
 	return boardDAO.getBoardList();
 	}
+	@Override
+	public String getRatings(int id) {
+	return boardDAO.getRatings(id);
+	}
+	@Override 
+	public int updateRatings(int id) {
+		return boardDAO.updateRatings(id);
+	}
 }

@@ -32,5 +32,13 @@ public class BoardDAO {
 		List<BoardVO> list = sqlSession.selectList("Board.getBoardList");
 		return list;
 	}
+	public String getRatings(int id) {
+		String result = (String)sqlSession.selectOne("Board.getRatings", id);
+		return result;
+	}
+	public int updateRatings(int id) {
+		int result = sqlSession.update("Board.updateRatings", id);
+		return result;
+	}
 
 }
