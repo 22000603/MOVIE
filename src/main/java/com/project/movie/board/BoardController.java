@@ -20,6 +20,20 @@ public class BoardController {
 				boardService.getBoardList());
 		return "board/list";
 	}
+	
+	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+	public String viewPost(@PathVariable("id") int id, Model model) {
+		int i = boardService.updateRatings(id);
+		if (i == 0)
+			System.out.println("평점 업데이트 실패");
+		else
+			System.out.println("평점 업데이트 성공");
+		BoardVO boardVO = boardService.getBoard(id);
+		model.addAttribute("boardVO", boardVO);
+		
+		return "board/view";
+		
+	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addPost() {
@@ -29,9 +43,9 @@ public class BoardController {
 	public String addOK(BoardVO vo) {
 		int i = boardService.insertBoard(vo);
 		if (i == 0)
-			System.out.println("Insert 성공");
-		else
 			System.out.println("Insert 실패");
+		else
+			System.out.println("Insert 성공");
 		return "redirect:/movie/list";
 	}
 	@RequestMapping(value = "/movie/edit/{id}", method = RequestMethod.GET)

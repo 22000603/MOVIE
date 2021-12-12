@@ -20,4 +20,12 @@
 	<select id="getBoardList" resultType="board">
 		select * from MOVIE order by id desc
 	</select>
+	<select id="getRatings" resultType="String">
+	    select avg(score) from REVIEW where id=#{id}
+	</select>
+	<update id="updateRatings" parameterType="int">
+	update MOVIE m 
+	set m.score = (select avg(score) from REVIEW where category=#{id})
+	where m.id=#{id};
+	</update>
 </mapper>
