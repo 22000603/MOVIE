@@ -2,6 +2,7 @@ package com.project.movie.board;
 
 import java.util.Date;
 
+
 public class BoardVO {
 	private int id;
 	private String title;

@@ -1,4 +1,4 @@
-package com.project.movie.board;
+package com.project.movie.review;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,15 +7,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.project.movie.board.BoardVO;
+
 @Controller
-public class BoardController {
+public class ReviewController {
 
 	@Autowired
-	BoardService boardService;
-	
+	ReviewService reviewService;
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String boardlist(Model model) {
+	@RequestMapping(value = "/review/{id}", method = RequestMethod.GET)
+	public String reviewlist((@PathVariable("id") int id, Model model) {
+		
 		model.addAttribute("list",
 				boardService.getBoardList());
 		return "board/list";
@@ -31,23 +33,23 @@ public class BoardController {
 		BoardVO boardVO = boardService.getBoard(id);
 		model.addAttribute("boardVO", boardVO);
 		
-		return "board/view";
+		return "/review/review";
 		
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addPost() {
-		return "board/addpostform";
+	public String addReview() {
+		return "board/review/addreviewform";
 	}
-
+	
 	@RequestMapping(value = "/addok", method = RequestMethod.POST)
-	public String addOK(BoardVO vo) {
-		int i = boardService.insertBoard(vo);
+	public String addOK(ReviewVO vo) {
+		int i = reviewService.insertReview(vo);
 		if (i == 0)
 			System.out.println("Insert 실패");
 		else
 			System.out.println("Insert 성공");
-		return "redirect:/movie/list";
+		return "redirect:/movie/list/reivew";
 	}
 	@RequestMapping(value = "/movie/edit/{id}", method = RequestMethod.GET)
 		public String editPost(@PathVariable("id") int id, Model model) {
@@ -76,7 +78,6 @@ public class BoardController {
 		
 		return "redirect:/movie/list";
 	}
-	
 	
 
 }

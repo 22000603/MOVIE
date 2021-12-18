@@ -9,6 +9,7 @@
 <head>
  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Member.css">
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>Edit Post</title>
 </head>
 <body>
@@ -21,6 +22,20 @@
   <tr><td>카테고리</td><td> <form:input path="genre" /> </td></tr>
   <tr><td>제목</td><td> <form:input path="title" /> </td></tr>
   <tr><td>글쓴이</td><td> <form:input path="lang" /> </td></tr>
+=======
+<title>Edit Movie</title>
+</head>
+<body>
+
+
+<h1>영화수정</h1>
+<form:form commandName="boardVO" method="post" action="../editok">
+<form:hidden path="id"/>
+<table id="edit">
+  <tr><td>장르</td><td> <form:input path="genre" /> </td></tr>
+  <tr><td>제목</td><td> <form:input path="title" /> </td></tr>
+  <tr><td>언어</td><td> <form:input path="lang" /> </td></tr>
+>>>>>>> refs/remotes/origin/review
   <tr><td>내용</td><td> <form:textarea cols="50" rows="5" path="content" /> </td></tr>
 </table>
 <input type="submit" value="수정하기"/>

@@ -39,3 +39,4 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.updateRatings(id);
 	}
 }
+
