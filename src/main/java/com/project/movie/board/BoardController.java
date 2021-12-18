@@ -47,7 +47,7 @@ public class BoardController {
 			System.out.println("Insert 실패");
 		else
 			System.out.println("Insert 성공");
-		return "redirect:/movie/list";
+		return "redirect:/list";
 	}
 	@RequestMapping(value = "/movie/edit/{id}", method = RequestMethod.GET)
 		public String editPost(@PathVariable("id") int id, Model model) {
@@ -74,7 +74,7 @@ public class BoardController {
 			System.out.println("삭제 성공");
 		
 		
-		return "redirect:/movie/list";
+		return "redirect:/list";
 	}
 	
 	

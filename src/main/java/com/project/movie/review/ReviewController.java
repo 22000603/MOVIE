@@ -38,7 +38,7 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/movie/review/{id}/addok", method = RequestMethod.POST)
-	public String addOK(@PathVariable("id") int id, ReviewVO vo) {
+	public String addReviewOK(@PathVariable("id") int id, ReviewVO vo) {
 		vo.setCategory(id);
 		int i = reviewService.insertReview(vo);
 		if (i == 0)
@@ -48,14 +48,14 @@ public class ReviewController {
 		return "redirect:/movie/reivew/{id}";
 	}
 	
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/movie/review/edit/{id}", method = RequestMethod.GET)
 		public String editReview(@PathVariable("id") int id, Model model) {
 			ReviewVO reviewVO = reviewService.getReview(id);
 			model.addAttribute("ReviewVO", reviewVO);
 			return "board/review/editreviewform";
 	}
-	@RequestMapping(value = "/editok", method = RequestMethod.POST)
-	public String editOK(ReviewVO vo) {
+	@RequestMapping(value = "/movie/review/editok", method = RequestMethod.POST)
+	public String editReviewOK(ReviewVO vo) {
 		int i = reviewService.updateReview(vo);
 		if (i==0)
 			System.out.println("수정 실패");
@@ -64,7 +64,7 @@ public class ReviewController {
 		
 		return "redirect:/movie/list";
 	}
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/movie/review/delete/{id}", method = RequestMethod.GET)
 	public String delReview(@PathVariable("id") int id) {
 		int i = reviewService.deleteReview(id);
 		if (i==0)
