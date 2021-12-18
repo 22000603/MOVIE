@@ -39,7 +39,7 @@ public class BoardController {
 	public String addPost() {
 		return "board/addpostform";
 	}
-	
+
 	@RequestMapping(value = "/addok", method = RequestMethod.POST)
 	public String addOK(BoardVO vo) {
 		int i = boardService.insertBoard(vo);

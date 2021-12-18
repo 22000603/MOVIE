@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value="/login")
-public class UserController {
+public class LoginController {
 	
 	@Autowired
 	UserServiceImpl service;
@@ -29,7 +29,7 @@ public class UserController {
 		if ( loginvo != null ){ // 로그인성공
 			System.out.println("로그인성공!");
 			session.setAttribute("login", loginvo); 
-			returnURL = "redirect:/board/list";         
+			returnURL = "redirect:/list";         
 			}else { // 로그인실패
 				System.out.println("로그인실패!");
 				returnURL = "redirect:/login/login";         
