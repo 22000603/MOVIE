@@ -52,8 +52,9 @@
 		<td><a href="/movie/review/edit/${u.id}">Edit</a></td>
 		<td><a href="javascript:delete_ok('${u.id}')">Delete</a></td>
 	</tr>
+	
 </c:forEach>
 </table>
-<br/><button type="button" onclick="location.href='/movie/review/add'"> 리뷰쓰기 </button>
+<br/><button type="button" onclick="location.href='/add'"> 리뷰쓰기 </button>
 </body>
 </html>
