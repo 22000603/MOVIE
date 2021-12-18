@@ -14,7 +14,7 @@
 		select * from REVIEW where id=#{id}
 	</select>
 	<select id="getReviewList" resultType="review">
-		select * from REVIEW order by score 
+		select * from REVIEW order by score desc
 	</select>
 	
 </mapper>

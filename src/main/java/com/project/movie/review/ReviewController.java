@@ -1,5 +1,6 @@
 package com.project.movie.review;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.project.movie.board.BoardVO;
+
 
 @Controller
 public class ReviewController {
@@ -18,12 +21,12 @@ public class ReviewController {
 	ReviewService reviewService;
 	
 	
-	@RequestMapping(value = "/review/{id}", method = RequestMethod.GET)
-	public String reviewList(@PathVariable("id") int id, Model model) {
+	@RequestMapping(value = "/review/{category}", method = RequestMethod.GET)
+	public String reviewList(@PathVariable("category") int category, Model model) {
 		
-		List<ReviewVO> movielist = null;
+		List<ReviewVO> movielist = new ArrayList<ReviewVO>();
 		for(ReviewVO r : reviewService.getReviewList()) {
-			if(r.getCategory() == id)
+			if(r.getCategory() == category)
 				movielist.add(r);
 		}
 		
@@ -32,40 +35,41 @@ public class ReviewController {
 	}
 
 
-	@RequestMapping(value = "/review/{id}/add", method = RequestMethod.GET)
-	public String addReview(Model model) {
+	@RequestMapping(value = "/review/{category}/add", method = RequestMethod.GET)
+	public String addReview(@PathVariable("category") int category, Model model) {
 		return "board/review/addreviewform";
 	}
 	
-	@RequestMapping(value = "/review/{id}/addok", method = RequestMethod.POST)
-	public String addReviewOK(@PathVariable("id") int id, ReviewVO vo) {
-		vo.setCategory(id);
+	@RequestMapping(value = "/review/{category}/addreviewok", method = RequestMethod.POST)
+	public String addReviewOK(@PathVariable("category") int category, ReviewVO vo) {
+		vo.setCategory(category);
 		int i = reviewService.insertReview(vo);
 		if (i == 0)
 			System.out.println("Insert 실패");
 		else
 			System.out.println("Insert 성공");
-		return "redirect:/reivew";
+		return "redirect:/review/{category}";
 	}
 	
-	@RequestMapping(value = "/review/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/review/{category}/edit/{id}", method = RequestMethod.GET)
 		public String editReview(@PathVariable("id") int id, Model model) {
 			ReviewVO reviewVO = reviewService.getReview(id);
 			model.addAttribute("ReviewVO", reviewVO);
 			return "board/review/editreviewform";
 	}
-	@RequestMapping(value = "/review/editok", method = RequestMethod.POST)
-	public String editReviewOK(ReviewVO vo) {
+	@RequestMapping(value = "/review/{category}/editreviewok", method = RequestMethod.POST)
+	public String editReviewOK(@PathVariable("category") int category, ReviewVO vo) {
 		int i = reviewService.updateReview(vo);
 		if (i==0)
 			System.out.println("수정 실패");
 		else
 			System.out.println("수정 성공");
 		
-		return "redirect:/review";
+		return "redirect:/review/{category}";
 	}
-	@RequestMapping(value = "/review/delete/{id}", method = RequestMethod.GET)
-	public String delReview(@PathVariable("id") int id) {
+
+	@RequestMapping(value = "/review/{category}/delete/{id}", method = RequestMethod.GET)
+	public String delReview(@PathVariable("category") int category, @PathVariable("id") int id) {
 		int i = reviewService.deleteReview(id);
 		if (i==0)
 			System.out.println("삭제 실패");
@@ -73,7 +77,7 @@ public class ReviewController {
 			System.out.println("삭제 성공");
 		
 		
-		return "redirect:/review";
+		return "redirect:/review/{category}";
 	}
 	
 

@@ -15,7 +15,7 @@
 
 
 <h1>리뷰수정</h1>
-<form:form commandName="reviewVO" method="post" action="../editok">
+<form:form commandName="reviewVO" method="post" action="editreviewok">
 <form:hidden path="id"/>
 <table id="edit">
   <tr><td>점수</td><td> <form:input path="score" /> </td></tr>

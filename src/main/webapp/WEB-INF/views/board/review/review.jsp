@@ -32,7 +32,7 @@
 <script>
 	function delete_ok(id){
 		var a = confirm("정말로 삭제하겠습니까?");
-		if(a) location.href='/movie/review/delete/' + id;
+		if(a) location.href='/movie/review/${category}/delete/' + id;
 	}
 </script>
 </head>
@@ -40,6 +40,7 @@
 <h1>리뷰게시판</h1>
 <table id="list" width="90%">
 <tr>
+	<th>id</th>
 	<th>점수</th>
 	<th>리뷰</th>
 	<th>수정</th>
@@ -47,14 +48,15 @@
 </tr>
 <c:forEach items="${list}" var="u">
 	<tr>
+		<td>${u.id}</td>
 		<td>${u.score}</td>
 		<td>${u.review}</td>
-		<td><a href="/movie/review/edit/${u.id}">Edit</a></td>
+		<td><a href="/movie/review/${category}/edit/${u.id}">Edit</a></td>
 		<td><a href="javascript:delete_ok('${u.id}')">Delete</a></td>
 	</tr>
-	
 </c:forEach>
 </table>
-<br/><button type="button" onclick="location.href='/add'"> 리뷰쓰기 </button>
+<br/><button type="button" onclick="location.href='/movie/review/${category}/add'"> 리뷰등록 </button>
+<button type="button" onclick="location.href='/movie/list'"> 영화목록 </button>
 </body>
 </html>
