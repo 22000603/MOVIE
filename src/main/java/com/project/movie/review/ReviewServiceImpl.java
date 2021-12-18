@@ -24,6 +24,10 @@ public class ReviewServiceImpl implements ReviewService{
 	return reviewDAO.deleteReview(id);
 	}
 	@Override
+	public ReviewVO getReview(int id) {
+	return reviewDAO.getReview(id);
+	}
+	@Override
 	public List<ReviewVO> getReviewList(){
 	return reviewDAO.getReviewList();
 	}

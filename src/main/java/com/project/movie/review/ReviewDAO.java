@@ -24,6 +24,10 @@ public class ReviewDAO {
 		int result = sqlSession.delete("Review.deleteReview", id);
 		return result;
 	}
+	public ReviewVO getReview(int id){
+		ReviewVO review = sqlSession.selectOne("Review.getReview", id);
+		return review;
+	}
 	public List<ReviewVO> getReviewList(){
 		List<ReviewVO> list = sqlSession.selectList("Review.getReviewList");
 		return list;

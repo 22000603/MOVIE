@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 <typeAliases>
 <typeAlias alias="board" type="com.project.movie.board.BoardVO" />
+<typeAlias alias="review" type="com.project.movie.review.ReviewVO" />
 <typeAlias alias="user" type="com.project.movie.user.UserVO" />
 </typeAliases>
 </configuration>
