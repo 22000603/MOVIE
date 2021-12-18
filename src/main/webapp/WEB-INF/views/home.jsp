@@ -16,3 +16,4 @@
 <p> <a href="/movie/list">게시판으로 이동</a></p>
 </body>
 </html>
+

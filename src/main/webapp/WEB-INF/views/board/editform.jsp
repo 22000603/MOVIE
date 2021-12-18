@@ -9,11 +9,10 @@
 <head>
  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/Member.css">
 <meta charset="UTF-8">
+
 <title>Edit Movie</title>
 </head>
 <body>
-
-
 <h1>영화수정</h1>
 <form:form commandName="boardVO" method="post" action="../editok">
 <form:hidden path="id"/>

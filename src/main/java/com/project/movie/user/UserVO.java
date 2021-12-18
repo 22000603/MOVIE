@@ -1,6 +1,7 @@
 package com.project.movie.user;
 
 public class UserVO {
+
 	private int id;
 	private String regdate;
 	private String userid;
@@ -37,5 +38,4 @@ public class UserVO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 }
