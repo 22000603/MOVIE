@@ -57,12 +57,12 @@
 		<td>${u.lang}</td>
 		<td>${u.content}</td>
 		<td>${u.score}</td>
-		<td><a href="/movie/review/${u.id}">Review</a></td>
-		<td><a href="/movie/edit/${u.id}">Edit</a></td>
+		<td><a href="/review/${u.id}">Review</a></td>
+		<td><a href="/edit/${u.id}">Edit</a></td>
 		<td><a href="javascript:delete_ok('${u.id}')">Delete</a></td>
 	</tr>
 </c:forEach>
 </table>
-<br/><button type="button" onclick="location.href='/movie/add'"> 영화등록 </button>
+<br/><button type="button" onclick="location.href='/add'"> 영화등록 </button>
 </body>
 </html>

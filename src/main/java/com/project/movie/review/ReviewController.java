@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.project.movie.board.BoardService;
 import com.project.movie.board.BoardVO;
 
 
@@ -19,6 +20,9 @@ public class ReviewController {
 
 	@Autowired
 	ReviewService reviewService;
+	
+	@Autowired
+	BoardService boardService;
 	
 	
 	@RequestMapping(value = "/review/{category}", method = RequestMethod.GET)
@@ -29,7 +33,12 @@ public class ReviewController {
 			if(r.getCategory() == category)
 				movielist.add(r);
 		}
-		
+		int i = boardService.updateRatings(category);
+		if (i == 0)
+			System.out.println("평점 업데이트 실패");
+		else
+			System.out.println("평점 업데이트 성공");
+		BoardVO boardVO = boardService.getBoard(category);
 		model.addAttribute("list",movielist);
 		return "board/review/review";
 	}
