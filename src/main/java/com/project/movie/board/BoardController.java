@@ -47,15 +47,15 @@ public class BoardController {
 			System.out.println("Insert 실패");
 		else
 			System.out.println("Insert 성공");
-		return "redirect:/movie/list";
+		return "redirect:/list";
 	}
-	@RequestMapping(value = "/movie/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 		public String editPost(@PathVariable("id") int id, Model model) {
 			BoardVO boardVO = boardService.getBoard(id);
 			model.addAttribute("boardVO", boardVO);
-			return "editform";
+			return "board/editform";
 	}
-	@RequestMapping(value = "/movie/editok", method = RequestMethod.POST)
+	@RequestMapping(value = "/editok", method = RequestMethod.POST)
 	public String editOK(BoardVO vo) {
 		int i = boardService.updateBoard(vo);
 		if (i==0)
@@ -63,9 +63,9 @@ public class BoardController {
 		else
 			System.out.println("수정 성공");
 		
-		return "redirect:/movie/list";
+		return "redirect:/list";
 	}
-	@RequestMapping(value = "/movie/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String delPost(@PathVariable("id") int id) {
 		int i = boardService.deleteBoard(id);
 		if (i==0)
@@ -74,7 +74,7 @@ public class BoardController {
 			System.out.println("삭제 성공");
 		
 		
-		return "redirect:/movie/list";
+		return "redirect:/list";
 	}
 	
 	
