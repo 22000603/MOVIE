@@ -9,7 +9,7 @@
 		update MOVIE
 		set title=#{title}, content=#{content}, genre=#{genre},
 		lang=#{lang}
-		where seq=#{seq}
+		where id=#{id}
 	</update>
 	<delete id="deleteBoard">
 		delete from MOVIE where id=#{id}
