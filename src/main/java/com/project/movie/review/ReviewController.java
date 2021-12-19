@@ -66,7 +66,7 @@ public class ReviewController {
 			model.addAttribute("ReviewVO", reviewVO);
 			return "board/review/editreviewform";
 	}
-	@RequestMapping(value = "/review/{category}/editreviewok", method = RequestMethod.POST)
+	@RequestMapping(value = "/review/{category}/editreviewok", method = RequestMethod.GET)
 	public String editReviewOK(@PathVariable("category") int category, ReviewVO vo) {
 		int i = reviewService.updateReview(vo);
 		if (i==0)

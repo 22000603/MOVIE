@@ -15,11 +15,11 @@
 
 
 <h1>리뷰수정</h1>
-<form:form commandName="ReviewVO" method="post" action="editreviewok">
+<form:form commandName="ReviewVO" method="get" action="../editreviewok">
 <form:hidden path="id"/>
 <table id="edit">
   <tr><td>점수</td><td> <form:input path="score" /> </td></tr>
-  <tr><td>리뷰</td><td> <form:textarea cols="50" rows="5" path="review" /> </td></tr>
+  <tr><td>리뷰</td><td> <form:textarea cols="50" rows="5" path="review"/> </td></tr>
 </table>
 <input type="submit" value="수정하기"/>
 <input type="button" value="취소하기" onclick="history.back()"/>

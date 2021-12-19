@@ -15,7 +15,7 @@
 <tr><td>점수:</td><td><input type="text" name="score"/></td></tr>
 <tr><td>리뷰:</td><td><textarea cols="50" rows="5" name="review"></textarea></td></tr>
 </table>
-<button type="button" onclick="location.href='/movie/review/${category}'"> View All Reviews</button>
+<button type="button" onclick="location.href='/review/${category}'"> View All Reviews</button>
 <button type="submit">등록하기</button> 
 
 </form>
